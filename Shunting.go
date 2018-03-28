@@ -12,6 +12,33 @@ func intopost(infix string)string{
 	specials := map[rune]int{'*':10, '.': 9, '|':8}
 	pofix := []rune{}
 	s := []rune{} 
+
+//for each character in the expression
+	for _, r := range infix{
+		switch {
+			
+		case r == '(' :
+			s = append(s,r)
+
+		case r == ')' :
+			for(s[len(s)-1] != '('){
+				pofix, s = append(pofix, s[len(s)-1]), s[:len(s)-1]  
+			}//end for
+			s = s[:len(s)-1]  
+
+		case specials[r] > 0 :
+			//for
+			for(len(s) > 0 && specials[r] <= specials[s[len(s)-1]] ){
+				pofix, s = append(pofix, s[len(s)-1]), s[:len(s)-1] 
+			}//end for
+			s = append(s,r)
+		default:
+		pofix = append(pofix,r)
+		}
+	
+	}//end for range
+
+
 	return infix
 }
 
