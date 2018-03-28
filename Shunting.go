@@ -8,6 +8,10 @@ import (
 
 //function for changing infix to post fix notation
 func intopost(infix string)string{
+	//initialize variables needed
+	specials := map[rune]int{'*':10, '.': 9, '|':8}
+	pofix := []rune{}
+	s := []rune{} 
 	return infix
 }
 
