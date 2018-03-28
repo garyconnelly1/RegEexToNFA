@@ -46,8 +46,12 @@ func intopost(infix string)string{
 	
 	}//end for range
 
+	for len(s) > 0 {
+	pofix, s = append(pofix, s[len(s)-1]), s[:len(s)-1] 
+}
 
-	return infix
+
+	return string(pofix)
 }
 
 //main function
