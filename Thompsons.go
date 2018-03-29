@@ -95,6 +95,14 @@ func poregtonfa(pofix string) *nfa{
 
 //add state function
 func addState(l []*state, s *state, a *state) []*state {
+	l = append(l,s)
+
+	if s != a && s.symbol == 0 {
+		l = addState(l, s.edge1, a)
+		if s.edge2 != nil {
+			l = addState(l, s.edge2, a)
+		}
+	} 
 		return l
 }//end addState
 
