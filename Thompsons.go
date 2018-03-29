@@ -134,6 +134,16 @@ func pomatch(po string, s string) bool{
 		current, next = next, []*state{}
 	}//end range s for
 
+
+	//for range of current
+	for _, c:= range current{
+		if c == ponfa.accept {
+			ismatch = true
+			break
+		}//end if
+		
+	}//end range current for
+
 	return ismatch
 }
 
