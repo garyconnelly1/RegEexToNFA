@@ -93,6 +93,12 @@ func poregtonfa(pofix string) *nfa{
 	return nfastack[0]
 }//end function
 
+//add state function
+func addState(l []*state, s *state, a *state) []*state {
+		return l
+}//end addState
+
+
 func main(){
 
 	fmt.Println(pomatch("ab.*c*|", "abab"))
