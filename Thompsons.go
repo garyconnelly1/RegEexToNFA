@@ -123,7 +123,17 @@ func pomatch(po string, s string) bool{
 	next := []*state{}
 
 	current = addState(current[:], ponfa.initial, ponfa.accept)
-	
+
+//for range of s
+	for _, r:= range s{
+		for _, c:= range current{
+			if c.symbol == r{
+				next = addState(next[:], c.edge1, ponfa.accept)
+			}//end if
+		}//end range current for
+		current, next = next, []*state{}
+	}//end range s for
+
 	return ismatch
 }
 
