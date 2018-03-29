@@ -109,7 +109,7 @@ func addState(l []*state, s *state, a *state) []*state {
 			l = addState(l, s.edge2, a)
 		}
 	} 
-	//return array of pointers l
+	//return array of pointers l 
 		return l
 }//end addState
 
