@@ -92,3 +92,8 @@ func poregtonfa(pofix string) *nfa{
 
 	return nfastack[0]
 }//end function
+
+func main(){
+
+	fmt.Println(pomatch("ab.*c*|", "abab"))
+}

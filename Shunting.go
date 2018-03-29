@@ -55,6 +55,7 @@ func intopost(infix string)string{
 }
 
 //main function
+/*
 func main(){
 	// postfix = ab.c*.
 	fmt.Println("Infix: ", "a.b.c*")
@@ -72,3 +73,4 @@ func main(){
 	fmt.Println("Infix: ", "n.a.m.e")
 	fmt.Println("Postfix: ", intopost("n.a.m.e"))
 }
+*/
