@@ -116,6 +116,14 @@ func addState(l []*state, s *state, a *state) []*state {
 //regex matching function
 func pomatch(po string, s string) bool{
 	ismatch := false
+
+	ponfa := poregtonfa(po)
+
+	current := []*state{}
+	next := []*state{}
+
+	current = addState(current[:], ponfa.initial, ponfa.accept)
+	
 	return ismatch
 }
 
