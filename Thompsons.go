@@ -46,14 +46,19 @@ func poregtonfa(pofix string) *nfa{
 
 			//if the character = '|'
 		case '|':
+			//variable frag 2 is assigned the value of the last element of the nfastack array
 			frag2 := nfastack[len(nfastack)-1]
+			//nfa stack is set to up to the value of the last element in the nfa stack array
 			nfastack = nfastack[:len(nfastack)-1]
+			//variable frag 1 is assigned the value of the last element of the nfastack array
 			frag1 := nfastack[len(nfastack)-1]
+			//nfa stack is set to up to the value of the last element in the nfa stack array
 			nfastack = nfastack[:len(nfastack)-1]
 
-			//new states
+			//generate the new states states
 			initial := state{edge1: frag1.initial, edge2: frag2.initial}
 			accept := state{}
+			//frag 1 and 2, on edge one of accept, is given accept state
 			frag1.accept.edge1 = &accept
 			frag2.accept.edge1 = &accept
 
