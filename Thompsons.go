@@ -94,15 +94,22 @@ func poregtonfa(pofix string) *nfa{
 }//end function
 
 //add state function
+//function returns an array of pointers to state struct
 func addState(l []*state, s *state, a *state) []*state {
+	//append the state pointer to the l array
 	l = append(l,s)
 
+	//if state is not = to a(accept) and the value of symbol(rune) is 0
 	if s != a && s.symbol == 0 {
+		//recursively append states edge1 and accept
 		l = addState(l, s.edge1, a)
+		//if states edge2 is not null(0) 
 		if s.edge2 != nil {
+			//and states edge 2 and accept
 			l = addState(l, s.edge2, a)
 		}
 	} 
+	//return array of pointers l
 		return l
 }//end addState
 
