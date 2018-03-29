@@ -18,20 +18,33 @@ type nfa struct{
 	accept *state
 }
 
+//function that returns a pointer to the nfa struct
 func poregtonfa(pofix string) *nfa{
+	//create an array that represents the nfa stack
 	nfastack := []*nfa{}
 
+//for each element in the string that was passed in to the function
 	for _, r := range pofix {
 		switch r{
+			//if the character = '.'
 		case '.':
+			//variable frag 2 is assigned the value of the last element of the nfastack array
 			frag2 := nfastack[len(nfastack)-1]
+			//nfa stack is set to up to the value of the last element in the nfa stack array
 			nfastack = nfastack[:len(nfastack)-1]
+			//variable frag 1 is assigned the value of the last element of the nfastack array
 			frag1 := nfastack[len(nfastack)-1]
+			//nfa stack is set to up to the value of the last element in the nfa stack array
 			nfastack = nfastack[:len(nfastack)-1]
 
+			//edge 1, which is pointed to by the accept in the nfa struct, which pointed to by the nfa stack, is set to the initial state
+			//of frag2.
 			frag1.accept.edge1 = frag2.initial
 
+			//append the nfa with the initial state of frag1 and the accept state of frag 2 to the nfa stack.
 			nfastack = append(nfastack, &nfa{initial: frag1.initial, accept: frag2.accept})
+
+			//if the character = '|'
 		case '|':
 			frag2 := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
