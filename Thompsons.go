@@ -113,6 +113,12 @@ func addState(l []*state, s *state, a *state) []*state {
 		return l
 }//end addState
 
+//regex matching function
+func pomatch(po string, s string) bool{
+	ismatch := false
+	return ismatch
+}
+
 
 func main(){
 
