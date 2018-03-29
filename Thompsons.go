@@ -115,6 +115,7 @@ func addState(l []*state, s *state, a *state) []*state {
 
 //regex matching function
 func pomatch(po string, s string) bool{
+	//initialise instance variables
 	ismatch := false
 
 	ponfa := poregtonfa(po)
@@ -125,9 +126,13 @@ func pomatch(po string, s string) bool{
 	current = addState(current[:], ponfa.initial, ponfa.accept)
 
 //for range of s
+//for each character r in string s
 	for _, r:= range s{
+		//for each var c in current array
 		for _, c:= range current{
+			//if symbol = current character r
 			if c.symbol == r{
+				//array next is set to array of pointers returned from addState function
 				next = addState(next[:], c.edge1, ponfa.accept)
 			}//end if
 		}//end range current for
@@ -136,14 +141,20 @@ func pomatch(po string, s string) bool{
 
 
 	//for range of current
+	// for each var c in currentarray
 	for _, c:= range current{
+		//if c == nfa accept state
 		if c == ponfa.accept {
+			//then it is a match
 			ismatch = true
+			//break out of loop
 			break
 		}//end if
 		
 	}//end range current for
 
+
+	//return true/false result
 	return ismatch
 }
 
