@@ -153,6 +153,27 @@ func pomatch(po string, s string) bool{
 		
 	}//end range current for
 
+	/*
+	func TrimSuffix(s string) string {
+    if len(s) > 0 {
+		s = s[:len(s)-2]
+	}
+    return s
+}
+
+
+func main() {
+	
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter query: ")
+	input, _ := reader.ReadString('\n')
+	input = TrimSuffix(input)
+	input = intopost(input) // Remove ending of string
+	fmt.Println("Input", input)
+
+}
+	*/
+
 
 	//return true/false result
 	return ismatch
