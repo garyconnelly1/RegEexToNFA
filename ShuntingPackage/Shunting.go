@@ -1,13 +1,14 @@
 //shunting yard algorithm
 
-package main
+package ShuntingPackage
 
 import (
-	"fmt"
+	
 )
+//"fmt"
 
 //function for changing infix to post fix notation
-func intopost(infix string)string{
+func Intopost(infix string)string{
 	//initialize variables needed
 	specials := map[rune]int{'*':10, '.': 9, '|':8}
 	pofix := []rune{}

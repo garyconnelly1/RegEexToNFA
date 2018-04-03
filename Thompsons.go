@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"bufio"
 	"os"
+	shunting "./ShuntingPackage"
 	
 	
 	
@@ -192,7 +193,7 @@ func main(){
 	input, _ := reader.ReadString('\n')
 	fmt.Println("Before trim suffix" + input)
 	input = TrimFix(input)
-	fmt.Println("intopost + " + intopost(input))
+	fmt.Println("intopost + " + shunting.Intopost(input))
 	//fmt.Println("After trim suffix" + input)
 	//fmt.Println(pomatch("ab.*c*|", "abab"))
 }
