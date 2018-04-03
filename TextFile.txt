@@ -69,7 +69,7 @@ XI.	The Adventure of the Beryl Coronet
 XII.	The Adventure of the Copper Beeches
 
 
-ADVENTURE  I.  A SCANDAL IN BOHEMIA
+ADVENTURE  I.  A SCANDAL IN BOHEMIA name
 
 I.
 

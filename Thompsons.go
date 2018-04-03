@@ -7,6 +7,8 @@ import (
 	"os"
 	shunting "./ShuntingPackage"
 	"io/ioutil"
+	"strings"
+	"strconv"
 	
 	
 	
@@ -186,6 +188,9 @@ func TrimFix(s string) string{
 
 func main(){
 
+	count := 0
+	i := 0
+
 	//shunting := new Shunting()
 
 	//get user input
@@ -198,6 +203,8 @@ func main(){
 	//convert the regular expression from infix to post fix
 	fmt.Println("intopost + " + shunting.Intopost(text))
 
+	expression := shunting.Intopost(text)
+
 	//read in Gutenberg text file
 	 b, err := ioutil.ReadFile("TextFile.txt") // just pass the file name
     if err != nil {
@@ -206,7 +213,29 @@ func main(){
 
  str := string(b)
 
- fmt.Println(str)
+ //split the string into token words
+  s := strings.Split(str, " ")
+
+   for _, word := range s{
+		 i++
+		// fmt.Println(pomatch(text, word))
+		 if(pomatch(expression, word) == true){
+			 count++
+			fmt.Println("YUUUUUURRRRRRRRRTTTTT" +  " " + strconv.Itoa(i) + " " + word)
+		 }else{
+			// fmt.Println("nahh")
+		 }
+	 }
+
+	 if (count > 0) {
+		
+		 fmt.Println("Yes! The expression " + text + " exists in the text tile " + strconv.Itoa(count) + " times.")
+	 } else {
+		 fmt.Println("No! The expression " + text + " does not exist in the text document.")
+	 }
+	 fmt.Println(pomatch("an.d.", "and"))
+
+ //fmt.Println(str)
 	
 	//fmt.Println(pomatch("ab.*c*|", "abab"))
 }
