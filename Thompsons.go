@@ -3,6 +3,8 @@ package main
 //Thompsons algorithm
 import (
 	"fmt"
+	"bufio"
+	"os"
 	
 )
 
@@ -154,13 +156,18 @@ func pomatch(po string, s string) bool{
 	}//end range current for
 
 	/*
-	func TrimSuffix(s string) string {
+	func TrimSuffix(s string) string{
     if len(s) > 0 {
 		s = s[:len(s)-2]
 	}
     return s
 }
+*/
 
+
+
+
+/*
 
 func main() {
 	
@@ -179,8 +186,23 @@ func main() {
 	return ismatch
 }
 
+//function to trim the last two ascii characters off the end of the string
+func TrimFix(s string) string{
+	if len(s) > 0{
+		s = s[:len(s)-2]
+	}
+	return s
+}
+
 
 func main(){
 
+	//get user input
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter query: ")
+	input, _ := reader.ReadString('\n')
+	fmt.Println("Before trim suffix" + input)
+	input = TrimFix(input)
+	fmt.Println("After trim suffix" + input)
 	fmt.Println(pomatch("ab.*c*|", "abab"))
 }
