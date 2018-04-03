@@ -6,6 +6,7 @@ import (
 	"bufio"
 	"os"
 	shunting "./ShuntingPackage"
+	"io/ioutil"
 	
 	
 	
@@ -189,11 +190,23 @@ func main(){
 
 	//get user input
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter query: ")
-	input, _ := reader.ReadString('\n')
-	fmt.Println("Before trim suffix" + input)
-	input = TrimFix(input)
-	fmt.Println("intopost + " + shunting.Intopost(input))
-	//fmt.Println("After trim suffix" + input)
+	fmt.Print("Regular expression: ")
+	text, _ := reader.ReadString('\n')
+	fmt.Println("Before trim suffix" + text)
+	//trim last 2 ascii characters from the end
+	text = TrimFix(text)
+	//convert the regular expression from infix to post fix
+	fmt.Println("intopost + " + shunting.Intopost(text))
+
+	//read in Gutenberg text file
+	 b, err := ioutil.ReadFile("TextFile.txt") // just pass the file name
+    if err != nil {
+        fmt.Print(err)
+    }
+
+ str := string(b)
+
+ fmt.Println(str)
+	
 	//fmt.Println(pomatch("ab.*c*|", "abab"))
 }
