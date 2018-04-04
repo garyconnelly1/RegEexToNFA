@@ -89,6 +89,14 @@ func poregtonfa(pofix string) *nfa{
 
 			//append initial and accept statse to the nfa stack
 			nfastack = append(nfastack, &nfa{initial: &initial, accept: &accept})
+			//attempt to add the '?' operator
+		case '?':
+			frag := nfastack[len(nfastack)-1]
+			nfastack = nfastack[:len(nfastack)-1]
+
+			initial := state{edge1: frag.initial, edge2: frag.accept}
+
+			nfastack = append(nfastack, &nfa{initial: &initial, accept: frag.accept})
 		case '+':
 			frag := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
@@ -202,8 +210,7 @@ func main(){
 	i := 0
 	//os.Exit(2)
 	//string programController
-
-
+	//st := []string{}
 
 	//shunting := new Shunting()
 
@@ -212,9 +219,9 @@ func main(){
 	for{
 
 		reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter egular expression: ")
+	fmt.Print("Enter egular expression(Enter \"QUIT\" if you wish to exit the program): ")
 	text, _ := reader.ReadString('\n')
-	fmt.Println("Before trim suffix" + text)
+//	fmt.Println("Before trim suffix" + text)
 	//trim last 2 ascii characters from the end
 	text = TrimFix(text)
 
@@ -226,7 +233,7 @@ func main(){
 
 
 	//convert the regular expression from infix to post fix
-	fmt.Println("intopost + " + shunting.Intopost(text))
+	//fmt.Println("intopost + " + shunting.Intopost(text))
 
 	expression := shunting.Intopost(text)
 
@@ -246,6 +253,7 @@ func main(){
 		// fmt.Println(pomatch(text, word))
 		 if(pomatch(expression, word) == true){
 			 count++
+			// st[count] = strconv.Itoa(i)
 			fmt.Println("The word" +  " " + word + " appears " + strconv.Itoa(i) + " words in ")
 		 }else{
 			// fmt.Println("nahh")
@@ -254,11 +262,14 @@ func main(){
 
 	 if (count > 0) {
 		
-		 fmt.Println("Yes! The expression " + text + " exists in the text tile " + strconv.Itoa(count) + " times.")
+		 fmt.Println("Yes! The expression " + text + " exists in the text file " + strconv.Itoa(count) + " times.")
+
+		
+
 	 } else {
 		 fmt.Println("No! The expression " + text + " does not exist in the text document.")
 	 }
-	 fmt.Println(pomatch("I+", "I"))
+	// fmt.Println(pomatch("I+", "I"))
 	 
 
  //fmt.Println(str)
