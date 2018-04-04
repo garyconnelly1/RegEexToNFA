@@ -203,19 +203,11 @@ func TrimFix(s string) string{
 	return s
 }
 
-
-func main(){
+func checkFile(){
 
 	count := 0
 	i := 0
-	//os.Exit(2)
-	//string programController
-	//st := []string{}
 
-	//shunting := new Shunting()
-
-	//get user input
-	//try to keep prigram alive with a loop
 	for{
 
 		reader := bufio.NewReader(os.Stdin)
@@ -281,5 +273,25 @@ func main(){
 
 
 	}//end for loop
+
+}
+
+
+func main(){
+
+	
+	
+	checkFile()
+	
 	
 }
+
+//os.Exit(2)
+	//string programController
+	//st := []string{}
+
+	//shunting := new Shunting()
+
+	//get user input
+	//try to keep prigram alive with a loop
+	
