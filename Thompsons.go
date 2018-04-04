@@ -221,7 +221,7 @@ func main(){
 		// fmt.Println(pomatch(text, word))
 		 if(pomatch(expression, word) == true){
 			 count++
-			fmt.Println("YUUUUUURRRRRRRRRTTTTT" +  " " + strconv.Itoa(i) + " " + word)
+			fmt.Println("YUUUUUURRRRRRRRRTTTTT" +  " " + word + " appears " + strconv.Itoa(i) + " words in ")
 		 }else{
 			// fmt.Println("nahh")
 		 }
