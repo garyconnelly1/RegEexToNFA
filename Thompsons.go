@@ -89,6 +89,16 @@ func poregtonfa(pofix string) *nfa{
 
 			//append initial and accept statse to the nfa stack
 			nfastack = append(nfastack, &nfa{initial: &initial, accept: &accept})
+		case '+':
+			frag := nfastack[len(nfastack)-1]
+			nfastack = nfastack[:len(nfastack)-1]
+
+			accept := state{}
+			initial := state{edge1: frag.initial, edge2: &accept}
+
+			frag.accept.edge1 = &initial
+
+			nfastack = append(nfastack, &nfa{initial: frag.initial, accept: &accept})
 		default:
 			accept := state{}
 			initial := state{symbol: r, edge1: &accept}
@@ -233,7 +243,7 @@ func main(){
 	 } else {
 		 fmt.Println("No! The expression " + text + " does not exist in the text document.")
 	 }
-	 fmt.Println(pomatch("an.d.", "and"))
+	 fmt.Println(pomatch("I+", "I"))
 
  //fmt.Println(str)
 	
