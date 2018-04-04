@@ -200,12 +200,19 @@ func main(){
 
 	count := 0
 	i := 0
+	//os.Exit(2)
+	//string programController
+
+
 
 	//shunting := new Shunting()
 
 	//get user input
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Regular expression: ")
+	//try to keep prigram alive with a loop
+	for{
+
+		reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter egular expression: ")
 	text, _ := reader.ReadString('\n')
 	fmt.Println("Before trim suffix" + text)
 	//trim last 2 ascii characters from the end
@@ -231,7 +238,7 @@ func main(){
 		// fmt.Println(pomatch(text, word))
 		 if(pomatch(expression, word) == true){
 			 count++
-			fmt.Println("YUUUUUURRRRRRRRRTTTTT" +  " " + word + " appears " + strconv.Itoa(i) + " words in ")
+			fmt.Println("The word" +  " " + word + " appears " + strconv.Itoa(i) + " words in ")
 		 }else{
 			// fmt.Println("nahh")
 		 }
@@ -244,8 +251,16 @@ func main(){
 		 fmt.Println("No! The expression " + text + " does not exist in the text document.")
 	 }
 	 fmt.Println(pomatch("I+", "I"))
+	 
 
  //fmt.Println(str)
 	
 	//fmt.Println(pomatch("ab.*c*|", "abab"))
+
+	count = 0
+	i = 0
+
+
+	}//end for loop
+	
 }
