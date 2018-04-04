@@ -217,6 +217,14 @@ func main(){
 	fmt.Println("Before trim suffix" + text)
 	//trim last 2 ascii characters from the end
 	text = TrimFix(text)
+
+	//check if text equals QUIT
+	if text == "QUIT"{
+		fmt.Println("Program Ended.")
+		os.Exit(2)
+	}
+
+
 	//convert the regular expression from infix to post fix
 	fmt.Println("intopost + " + shunting.Intopost(text))
 
