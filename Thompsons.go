@@ -3,7 +3,7 @@ package main
 //Thompsons algorithm
 import (
 	"fmt"
-	"bufio"
+	
 	"os"
 	shunting "./ShuntingPackage"
 	"io/ioutil"
@@ -13,6 +13,8 @@ import (
 	
 	
 )
+
+//"bufio"
 
 //create structers
 type state struct{
@@ -210,12 +212,14 @@ func checkFile(){
 
 	for{
 
-		reader := bufio.NewReader(os.Stdin)
+	//	reader := bufio.NewReader(os.Stdin)
+		var text string
 	fmt.Print("Enter egular expression(Enter \"QUIT\" if you wish to exit the program): ")
-	text, _ := reader.ReadString('\n')
+	fmt.Scan(&text)
+	//text, _ := reader.ReadString('\n')
 //	fmt.Println("Before trim suffix" + text)
 	//trim last 2 ascii characters from the end
-	text = TrimFix(text)
+	//text = TrimFix(text)
 
 	//check if text equals QUIT
 	if text == "QUIT"{
@@ -279,9 +283,17 @@ func checkFile(){
 
 func main(){
 
+	 var input string
+	 fmt.Println("Enter \"1\" to check a regular expression against a text file")
+	 fmt.Scan(&input)
+	 fmt.Println("You entered " + input)
+
+	 if input == "1"{
+		checkFile()
+	 }else{
+		 fmt.Println("error")
+	 }
 	
-	
-	checkFile()
 	
 	
 }
