@@ -284,13 +284,15 @@ func checkFile(){
 func main(){
 
 	 var input string
-	 fmt.Println("Enter \"1\" to check a regular expression against a text file")
+	 fmt.Println("Enter \"1\" to check a regular expression against a text file, or \"2\" to see if a regular expression matches an exact string:")
 	 fmt.Scan(&input)
 	 fmt.Println("You entered " + input)
 
 	 if input == "1"{
 		checkFile()
-	 }else{
+	 }else if input =="2"{
+		  fmt.Println("Enter regex:  ")
+		 }else{
 		 fmt.Println("error")
 	 }
 	
