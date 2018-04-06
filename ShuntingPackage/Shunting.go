@@ -56,24 +56,3 @@ func Intopost(infix string)string{
 
 	return string(pofix)
 }
-
-//main function
-/*
-func main(){
-	// postfix = ab.c*.
-	fmt.Println("Infix: ", "a.b.c*")
-	fmt.Println("Postfix: ", intopost("a.b.c*"))
-
-	// postfix = abd|.*
-	fmt.Println("Infix: ", "(a.(b|d))*")
-	fmt.Println("Postfix: ", intopost("(a.(b|d))*"))
-	
-	// postfix = abb.+.c.
-	fmt.Println("Infix: ", "a.(b.b)+.c")
-	fmt.Println("Postfix: ", intopost("a.(b.b)+.c"))
-
-	// postfix = abb.+.c.
-	fmt.Println("Infix: ", "n.a.m.e")
-	fmt.Println("Postfix: ", intopost("n.a.m.e"))
-}
-*/
