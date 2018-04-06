@@ -40,4 +40,8 @@ Enter the regular expression you wish to test(eg. a.n.d for a followed by n foll
 
 ![](Images/Capture2.PNG)
 
+As a result of this, you will recieve a message telling you whether or not that expression exists in the file, how many times it exists, and even where on the file it exists.
+
+![](Images/Capture3.PNG)
+
 
