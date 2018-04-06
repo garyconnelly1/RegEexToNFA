@@ -291,11 +291,24 @@ func matchString(){
 		if text == "QUIT"{
 		fmt.Println("Program Ended.")
 		os.Exit(2)
-	}
+		}//end if QUIT
 
-	}
+		//convert the regular expression from infix to post fix
+		//fmt.Println("intopost + " + shunting.Intopost(text))
+
+	expression := shunting.Intopost(text)
+
+	var userString string
+		fmt.Print("Enter the string or word you wish to text the regular expression against: ")
+		fmt.Scan(&userString)
+
+		fmt.Println(pomatch(expression, userString))
+
+
+
+	}//end loop
 	 
-}
+}//end match string method
 
 
 func main(){
