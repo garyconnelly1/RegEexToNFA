@@ -44,4 +44,6 @@ As a result of this, you will recieve a message telling you whether or not that 
 
 ![](Images/Capture3.PNG)
 
+You can keep doing this as many times as you want, with whatever expressions you like. When you are done, simply type QUIT and the program will terminate.
 
+If you type 2 in for the initial menu option, you will be asked to enter a regular expression and a string you would like to check the regukar expression against. 
