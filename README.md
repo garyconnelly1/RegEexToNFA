@@ -24,7 +24,7 @@ Build the Thompsons.go file by typing the following into your command line.
 go build Thompsons.go
 ```
 
-###Step 2:
+### Step 2:
 Execute the Thompsons.go file.
 ```
 Thompsons.exe
