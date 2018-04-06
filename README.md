@@ -35,4 +35,9 @@ In the command propt you should see the following message:
 
 ![](Images/Capture1.PNG)
 
+To check a regular expression against a text file press 1.
+Enter the regular expression you wish to test(eg. a.n.d for a followed by n followed by d.)
+
+![](Images/Capture2.PNG)
+
 
