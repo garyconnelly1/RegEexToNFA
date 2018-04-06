@@ -33,5 +33,6 @@ Thompsons.exe
 ## How to run the program:
 In the command propt you should see the following message:
 
+![](Images/Capture1.PNG)
 
 
