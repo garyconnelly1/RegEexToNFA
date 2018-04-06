@@ -30,4 +30,8 @@ Execute the Thompsons.go file.
 Thompsons.exe
 ```
 
+## How to run the program:
+In the command propt you should see the following message:
+
+
 
