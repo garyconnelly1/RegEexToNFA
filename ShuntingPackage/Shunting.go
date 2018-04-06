@@ -6,7 +6,9 @@ import (
 	
 )
 //"fmt"
-
+/*
+	The main knowledge for this function came from our learn online moodle page. - https://web.microsoftstream.com/video/9d83a3f3-bc4f-4bda-95cc-b21c8e67675e .
+*/
 //function for changing infix to post fix notation
 func Intopost(infix string)string{
 	//initialize variables needed

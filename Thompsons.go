@@ -30,6 +30,11 @@ type nfa struct{
 	accept *state
 }
 
+/*
+	The main knowledge for the poregtonfa was gained during a video lecture on our leanronline page.  - https://web.microsoftstream.com/video/946a7826-e536-4295-b050-857975162e6c .
+	And - https://web.microsoftstream.com/video/68a288f5-4688-4b3a-980e-1fcd5dd2a53b .
+*/
+
 //function that returns a pointer to the nfa struct
 func poregtonfa(pofix string) *nfa{
 	//create an array that represents the nfa stack
@@ -144,6 +149,10 @@ func addState(l []*state, s *state, a *state) []*state {
 		return l
 }//end addState
 
+/*
+	The main knowledge behing the pomatch function was gained during an online video on our learnonine page. - https://web.microsoftstream.com/video/bad665ee-3417-4350-9d31-6db35cf5f80d .
+*/
+
 //regex matching function
 func pomatch(po string, s string) bool{
 	//initialise instance variables
@@ -218,6 +227,7 @@ func checkFile(){
 	expression := shunting.Intopost(text)
 
 	//read in Gutenberg(first few hundred lines of files) text file
+	//syntax for reading files came from - https://gobyexample.com/reading-files
 	 b, err := ioutil.ReadFile("TextFile.txt") // just pass the file name
     if err != nil {
 		//print err
@@ -262,7 +272,6 @@ func checkFile(){
 //match string method
 func matchString(){
 	for{
-
 		//get input for the match string
 		var text string
 		fmt.Print("Enter egular expression(Enter \"QUIT\" if you wish to exit the program): ")
