@@ -1,6 +1,8 @@
 
 package main
 //Thompsons algorithm
+
+//take in necessary imports
 import (
 	"fmt"
 	
@@ -14,7 +16,7 @@ import (
 	
 )
 
-//"bufio"
+
 
 //create structers
 type state struct{
@@ -99,6 +101,7 @@ func poregtonfa(pofix string) *nfa{
 			initial := state{edge1: frag.initial, edge2: frag.accept}
 
 			nfastack = append(nfastack, &nfa{initial: &initial, accept: frag.accept})
+			//attempt to add the '+' operator
 		case '+':
 			frag := nfastack[len(nfastack)-1]
 			nfastack = nfastack[:len(nfastack)-1]
@@ -135,8 +138,8 @@ func addState(l []*state, s *state, a *state) []*state {
 		if s.edge2 != nil {
 			//and states edge 2 and accept
 			l = addState(l, s.edge2, a)
-		}
-	} 
+		}//end if
+	}//end if 
 	//return array of pointers l 
 		return l
 }//end addState
@@ -146,11 +149,10 @@ func pomatch(po string, s string) bool{
 	//initialise instance variables
 	ismatch := false
 
+	//initialise variables
 	ponfa := poregtonfa(po)
-
 	current := []*state{}
 	next := []*state{}
-
 	current = addState(current[:], ponfa.initial, ponfa.accept)
 
 //for range of s
@@ -180,8 +182,6 @@ func pomatch(po string, s string) bool{
 		}//end if
 		
 	}//end range current for
-
-
 	//return true/false result
 	return ismatch
 }
@@ -189,48 +189,47 @@ func pomatch(po string, s string) bool{
 //function to trim the last two ascii characters off the end of the string
 func TrimFix(s string) string{
 	if len(s) > 0{
+		//s is equal to the s array up to the second last index in the s array
 		s = s[:len(s)-2]
 	}
 	return s
 }
 
 func checkFile(){
-
+	//initialise variables
 	count := 0
 	i := 0
 
+	//make this part of the program execute on a indefinite loop
 	for{
 
 	//	reader := bufio.NewReader(os.Stdin)
 	var text string
 	fmt.Print("Enter egular expression(Enter \"QUIT\" if you wish to exit the program): ")
 	fmt.Scan(&text)
-	//text, _ := reader.ReadString('\n')
-//	fmt.Println("Before trim suffix" + text)
-	//trim last 2 ascii characters from the end
-	//text = TrimFix(text)
-
+	
 	//check if text equals QUIT
 	if text == "QUIT"{
 		fmt.Println("Program Ended.")
 		os.Exit(2)
 	}
 
-
 	//convert the regular expression from infix to post fix
 	expression := shunting.Intopost(text)
 
-	//read in Gutenberg text file
+	//read in Gutenberg(first few hundred lines of files) text file
 	 b, err := ioutil.ReadFile("TextFile.txt") // just pass the file name
     if err != nil {
+		//print err
         fmt.Print(err)
     }
 
+//cast b to a string
  str := string(b)
 
  //split the string into token words
   s := strings.Split(str, " ")
-
+  //for the range of s
    for _, word := range s{
 		 i++
 		// fmt.Println(pomatch(text, word))
@@ -243,25 +242,22 @@ func checkFile(){
 		 }
 	 }
 
+	 //if pomatch returns true at any stage, count will be greater than 0
 	 if (count > 0) {
 		
 		 fmt.Println("Yes! The expression " + text + " exists in the text file " + strconv.Itoa(count) + " times.")
-
-		
-
+		 //if not, then there was no match
 	 } else {
 		 fmt.Println("No! The expression " + text + " does not exist in the text document.")
-	 }
+	 }//end if else
 	
-
 	 //re-initialize variables to go through the loop again
 	count = 0
 	i = 0
 
-
 	}//end for loop
 
-}
+}//end check file method
 
 //match string method
 func matchString(){
@@ -314,5 +310,5 @@ func main(){
 		  //else do an error message
 		 }else{
 		 fmt.Println("Unknown message recieved! Please re run the program and try again.")
-	 }	
-}
+	 }//end if else if	
+}//end main function
