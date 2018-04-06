@@ -213,7 +213,7 @@ func checkFile(){
 	for{
 
 	//	reader := bufio.NewReader(os.Stdin)
-		var text string
+	var text string
 	fmt.Print("Enter egular expression(Enter \"QUIT\" if you wish to exit the program): ")
 	fmt.Scan(&text)
 	//text, _ := reader.ReadString('\n')
@@ -280,6 +280,23 @@ func checkFile(){
 
 }
 
+//match string method
+func matchString(){
+	for{
+
+		var text string
+		fmt.Print("Enter egular expression(Enter \"QUIT\" if you wish to exit the program): ")
+		fmt.Scan(&text)
+
+		if text == "QUIT"{
+		fmt.Println("Program Ended.")
+		os.Exit(2)
+	}
+
+	}
+	 
+}
+
 
 func main(){
 
@@ -291,7 +308,8 @@ func main(){
 	 if input == "1"{
 		checkFile()
 	 }else if input =="2"{
-		  fmt.Println("Enter regex:  ")
+		  //fmt.Println("Enter regex:  ")
+		  matchString()
 		 }else{
 		 fmt.Println("error")
 	 }
