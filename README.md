@@ -49,3 +49,7 @@ You can keep doing this as many times as you want, with whatever expressions you
 If you type 2 in for the initial menu option, you will be asked to enter a regular expression and a string you would like to check the regukar expression against. 
 
 ![](Images/Capture4.PNG)
+
+This will return a true or false answer.
+
+![](Images/Capture5.PNG)
