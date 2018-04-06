@@ -53,3 +53,9 @@ If you type 2 in for the initial menu option, you will be asked to enter a regul
 This will return a true or false answer.
 
 ![](Images/Capture5.PNG)
+
+
+## How it was made.
+### Resources:
+I used a combination of resources to put this project together. First and foremost was learnonline. Our moodle page for graph theory was extremely well documented. It contained a lot of information about the theory behind deterministic finite automata and and non-deterministic finite automata. There was a series of lecture videos explaining in great detail, from the very beginning what an automata is and why it is important in the world of computing and computational thinking. - https://learnonline.gmit.ie/course/view.php?id=4161 .
+It was also only the second project I have done in go so I had to reference the go documentation for a lot of the syntax around what I was trying to achieve. - https://golang.org/doc/ . 
