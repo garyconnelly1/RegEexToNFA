@@ -186,17 +186,6 @@ func pomatch(po string, s string) bool{
 	return ismatch
 }
 
-
-
-
-
-
-
-
-
-
-
-
 //function to trim the last two ascii characters off the end of the string
 func TrimFix(s string) string{
 	if len(s) > 0{
@@ -229,8 +218,6 @@ func checkFile(){
 
 
 	//convert the regular expression from infix to post fix
-	//fmt.Println("intopost + " + shunting.Intopost(text))
-
 	expression := shunting.Intopost(text)
 
 	//read in Gutenberg text file
@@ -265,13 +252,9 @@ func checkFile(){
 	 } else {
 		 fmt.Println("No! The expression " + text + " does not exist in the text document.")
 	 }
-	// fmt.Println(pomatch("I+", "I"))
-	 
-
- //fmt.Println(str)
 	
-	//fmt.Println(pomatch("ab.*c*|", "abab"))
 
+	 //re-initialize variables to go through the loop again
 	count = 0
 	i = 0
 
@@ -284,10 +267,12 @@ func checkFile(){
 func matchString(){
 	for{
 
+		//get input for the match string
 		var text string
 		fmt.Print("Enter egular expression(Enter \"QUIT\" if you wish to exit the program): ")
 		fmt.Scan(&text)
 
+		//exit the program if the user entered QUIT
 		if text == "QUIT"{
 		fmt.Println("Program Ended.")
 		os.Exit(2)
@@ -296,16 +281,16 @@ func matchString(){
 		//convert the regular expression from infix to post fix
 		//fmt.Println("intopost + " + shunting.Intopost(text))
 
-	expression := shunting.Intopost(text)
+		//convert the users string into post fix notation
+		expression := shunting.Intopost(text)
 
-	var userString string
+		//get user input for the string with which they want to compare the regular expression
+		var userString string
 		fmt.Print("Enter the string or word you wish to text the regular expression against: ")
 		fmt.Scan(&userString)
 
+		//output the true or false result
 		fmt.Println(pomatch(expression, userString))
-
-
-
 	}//end loop
 	 
 }//end match string method
@@ -330,13 +315,3 @@ func main(){
 	
 	
 }
-
-//os.Exit(2)
-	//string programController
-	//st := []string{}
-
-	//shunting := new Shunting()
-
-	//get user input
-	//try to keep prigram alive with a loop
-	
