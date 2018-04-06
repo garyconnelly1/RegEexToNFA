@@ -298,20 +298,21 @@ func matchString(){
 
 func main(){
 
+	//get initial input from the user
 	 var input string
 	 fmt.Println("Enter \"1\" to check a regular expression against a text file, or \"2\" to see if a regular expression matches an exact string:")
 	 fmt.Scan(&input)
-	 fmt.Println("You entered " + input)
-
+	 
+	 //if input = 1
 	 if input == "1"{
+		 //trigger the check file method
 		checkFile()
+		//if input = 2
 	 }else if input =="2"{
-		  //fmt.Println("Enter regex:  ")
+		  //trigger the match string method
 		  matchString()
+		  //else do an error message
 		 }else{
-		 fmt.Println("error")
-	 }
-	
-	
-	
+		 fmt.Println("Unknown message recieved! Please re run the program and try again.")
+	 }	
 }
